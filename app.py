@@ -22,7 +22,7 @@ load_dotenv()
 
 # Database configuration
 DB_SERVER = os.getenv('DB_SERVER', '10.10.1.4')
-DB_NAME = os.getenv('DB_NAME', 'RAModule_Demo1')
+DB_NAME = os.getenv('DB_NAME', 'RAModuleDev_Deploy')
 DB_USER = os.getenv('DB_USER', 'etl_user')
 DB_PASSWORD = os.getenv('DB_PASSWORD', 'etl_user')
 DB_PORT = os.getenv('DB_PORT', '1433')
