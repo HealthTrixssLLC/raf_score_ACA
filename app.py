@@ -20,6 +20,15 @@ import sys
 # Load environment variables
 load_dotenv()
 
+# Database configuration
+DB_SERVER = os.getenv('DB_SERVER', '10.10.1.4')
+DB_NAME = os.getenv('DB_NAME', 'RAModule_Demo1')
+DB_USER = os.getenv('DB_USER', 'etl_user')
+DB_PASSWORD = os.getenv('DB_PASSWORD', 'etl_user')
+DB_PORT = os.getenv('DB_PORT', '1433')
+DB_CHARSET = os.getenv('DB_CHARSET', 'UTF-8')
+DB_TIMEOUT = int(os.getenv('DB_TIMEOUT', '30'))
+
 # Configure  logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -75,13 +84,13 @@ def get_db_connection():
     """Establish a connection to the database."""
     try:
         conn = pymssql.connect(
-            server='10.10.1.4',
-            database='RAModule_Demo1',
-            user='etl_user',
-            password='etl_user',
-            port='1433',
-            charset='UTF-8',
-            timeout=30
+            server=DB_SERVER,
+            database=DB_NAME,
+            user=DB_USER,
+            password=DB_PASSWORD,
+            port=DB_PORT,
+            charset=DB_CHARSET,
+            timeout=DB_TIMEOUT
         )
         logger.info("Database connection successful")
         return conn
