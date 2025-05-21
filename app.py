@@ -14,7 +14,7 @@ from datetime import datetime, date
 import os
 from fastapi.responses import HTMLResponse
 from functools import lru_cache
-from dotenv import load_dotenv
+from dotenv  import load_dotenv
 import sys
 
 # Load environment variables
